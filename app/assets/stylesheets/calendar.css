@@ -1,0 +1,49 @@
+.on_time {
+  background-color: #e1f7d5;
+}
+
+.less_than_five {
+  background-color: #c9c9ff;
+}
+
+.more_than_five {
+  background-color: #ffffc5;
+}
+
+.auth {
+  background-color: #f1cbff;
+}
+
+.unauth {
+  background-color: #ffbdbd;
+}
+
+.week {
+  text-align: center;
+}
+
+.weekSize {
+  width: 10%;
+}
+
+.att_status_size {
+  width: 20%;
+}
+
+.otherSize {
+  width: 15%;
+}
+
+.calendarkey{
+  padding-top: 10px;
+}
+
+.todayMessage {
+  color: black;
+  font-weight: bold;
+  text-align: right;
+}
+
+.today-align {
+  display: inline;
+}

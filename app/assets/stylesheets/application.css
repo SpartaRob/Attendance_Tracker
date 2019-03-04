@@ -1,0 +1,52 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+ .form{
+   /* border: 1px solid #; */
+   width: 70%;
+   padding: 1%;
+ }
+
+ .nameInput input,  .select select  {
+   width: 40%;
+ }
+
+ .action input, .action_button button{
+   width: 40%;
+   border-radius: 20px;
+   background-color: #4db8ff;
+ }
+
+ .field{
+   padding: 5px;
+ }
+
+.dropdown-menu{
+  max-height: 60vh;
+  overflow: scroll;
+}
+
+.radio_buttons input{
+  margin: 10px 7px 10px 20px;
+}
+.radio_buttons{
+    max-width: 498px;
+}
+
+.att_field {
+  margin-top: 20px;
+
+}

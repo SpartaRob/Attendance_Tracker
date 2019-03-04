@@ -1,0 +1,158 @@
+<h1>Groups</h1>
+
+<!-- Button's for sorting results -->
+<div class="container">
+  <div class="row">
+    <div class="buttons-sort">
+      <button type="button" name="button" id="sort_id" class="btn btn-secondary">Sort By Id</button>
+      <button type="button" name="button" id="sort_name" class="btn btn-secondary" >Sort By Name</button>
+      <button type="button" name="button" id="sort_active" class="btn btn-secondary">Sort By Active</button>
+    </div>
+  </div>
+  <div class="row">
+    <!-- This key shows blocks red and green -->
+    <div class="buttons-sort">
+      <p class="key"> Inactive</p>
+      <%= image_tag("square_block_red.jpg", size: "20x20", alt: "Edit Entry", class: "key") %>
+
+      <p class="key"> Active</p>
+      <%= image_tag("square_block.png", size: "20x20", alt: "Edit Entry", class: "key") %>
+    </div>
+  </div>
+</div>
+
+<!-- Below is the cards- A new card is generated for each new group -->
+<!-- Bootstrap container, row and col -->
+<!-- Listed below is the name, stream, start and end date -->
+<div class="" id="order_id">
+  <div class="container">
+    <div class="row group_info" id = "group_info">
+      <% @groups.each do |group| %>
+      <div class="col-md-4 col-sm-6 card-group">
+        <%= link_to group_path(group), class: "link_style" do %>
+        <!-- This adds the classes active-group if the group is active and the class inactive is there inactive -->
+        <div class="group-card <%= group.active ? "active-group" : "inactive-group" %>">
+          <h2><%= group.name %></h2>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item group-card-info">Stream: <%= group.stream %></li>
+            <li class="list-group-item group-card-info">Start Date: <%= group.startdate %></li>
+            <li class="list-group-item group-card-info">End Date: <%= group.enddate %></li>
+          </ul>
+        </div>
+        <% end %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<!-- Below is the cards- A new card is generated for each new group -->
+<!-- Bootstrap container, row and col -->
+<!-- Listed below is the name, stream, start and end date -->
+<div class="" id="order_name">
+  <div class="container">
+    <div class="row">
+      <% @groups1.each do |group| %>
+      <div class="col-md-4 col-sm-6 card-group">
+        <%= link_to group_path(group), class: "link_style" do %>
+        <!-- This adds the classes active-group if the group is active and the class inactive is there inactive -->
+        <div class="group-card <%= group.active ? "active-group" : "inactive-group" %>">
+          <h2><%= group.name %></h2>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item group-card-info">Stream: <%= group.stream %></li>
+            <li class="list-group-item group-card-info">Start Date: <%= group.startdate %></li>
+            <li class="list-group-item group-card-info">End Date: <%= group.enddate %></li>
+          </ul>
+        </div>
+        <% end %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<!-- Below is the cards- A new card is generated for each new group -->
+<!-- Bootstrap container, row and col -->
+<!-- Listed below is the name, stream, start and end date -->
+<div class="" id="order_active">
+  <div class="container">
+    <div class="row">
+      <% @groups2.each do |group| %>
+      <div class="col-md-4 col-sm-6 card-group">
+        <%= link_to group_path(group), class: "link_style" do %>
+        <!-- This adds the classes active-group if the group is active and the class inactive is there inactive -->
+        <div class="group-card <%= group.active ? "active-group" : "inactive-group" %>">
+          <h2><%= group.name %></h2>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item group-card-info">Stream: <%= group.stream %></li>
+            <li class="list-group-item group-card-info">Start Date: <%= group.startdate %></li>
+            <li class="list-group-item group-card-info">End Date: <%= group.enddate %></li>
+          </ul>
+        </div>
+        <% end %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<!-- Button for creating a new group -->
+<div class="btn-new">
+  <%= link_to "Add a Group", new_group_path, class: "btn btn-secondary new_group_button" %>
+</div>
+
+<script type="text/javascript">
+
+  // Loads the page with the groups being shown ordered by ID
+  $("#order_id").show()
+  $("#order_name").hide();
+  $("#order_active").hide();
+
+  // Adds click event to the "sort by name" button to display the groups ordered by name
+  document.getElementById("sort_name").addEventListener("click", function(){
+    $("#order_name").show();
+    $("#order_id").hide();
+    $("#order_active").hide();
+  });
+
+  // Adds click event to the "sort by ID" button to display the groups ordered by ID
+  document.getElementById("sort_id").addEventListener("click", function(){
+    $("#order_name").hide();
+    $("#order_id").show();
+    $("#order_active").hide();
+  });
+
+  // Adds click event to the "sort by active" button to display the groups
+  //ordered by acitve groups first
+  document.getElementById("sort_active").addEventListener("click", function(){
+    $("#order_name").hide();
+    $("#order_id").hide();
+    $("#order_active").show();
+  });
+
+  //Function to keep checking how the grouos are being displayed and highilght a button accordingly
+  setInterval(function () {
+    //Checks if the groups are displayed in name order
+    if ($("#order_name").is(":visible")) {
+      $("#sort_name").css({"background-color":"black", "color":"white"})
+    } else {
+      $("#sort_name").css({"background-color":"#6c757d", "color":"white"})
+    }
+
+    //Checks if the groups are displayed ID ordered by
+    if ($("#order_active").is(":visible")) {
+      $("#sort_active").css({"background-color":"black", "color":"white"})
+    } else {
+      $("#sort_active").css({"background-color":"#6c757d", "color":"white"})
+    }
+
+    //Checks if the groups are displayed with active groups being shown first
+    if ($("#order_id").is(":visible")) {
+      $("#sort_id").css({"background-color":"black", "color":"white"})
+    } else {
+      $("#sort_id").css({"background-color":"#6c757d", "color":"white"})
+    }
+
+  }, 10);
+
+</script>
